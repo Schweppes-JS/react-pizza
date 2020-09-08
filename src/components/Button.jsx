@@ -3,7 +3,7 @@ import React from "react";
 class Button extends React.Component {
   render() {
     return (
-      <a href="/cart.html" className="button button--cart">
+      <button className="button button--cart">
         <span>520 ₽</span>
         <div className="button__delimiter"></div>
         <svg
@@ -36,7 +36,7 @@ class Button extends React.Component {
           />
         </svg>
         <span>3</span>
-      </a>
+      </button>
     );
   }
 }
