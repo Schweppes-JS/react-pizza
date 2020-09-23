@@ -1,6 +1,5 @@
 import React from "react";
 import classNames from "classnames";
-import PropTypes from "prop-types";
 
 function PizzaBlock({ name, imageUrl, price, types, sizes }) {
   const availableNames = ["тонкое", "традиционное"];
@@ -73,22 +72,5 @@ function PizzaBlock({ name, imageUrl, price, types, sizes }) {
     </div>
   );
 }
-
-PizzaBlock.propTypes = {
-  name: PropTypes.string,
-  imageUrl: PropTypes.string,
-  price: PropTypes.number,
-  types: PropTypes.arrayOf(PropTypes.number),
-  sizes: PropTypes.array,
-};
-
-PizzaBlock.defaultProps = {
-  types: [],
-  name: "---",
-  sizes: [],
-  imageUrl:
-    "https://dodopizza.azureedge.net/static/Img/Products/Pizza/ru-RU/1e1a6e80-b3ba-4a44-b6b9-beae5b1fbf27.jpg",
-  price: 0,
-};
 
 export default PizzaBlock;
