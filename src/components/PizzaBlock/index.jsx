@@ -1,19 +1,40 @@
 import React from "react";
 import classNames from "classnames";
 
-function PizzaBlock({ name, imageUrl, price, types, sizes }) {
+function PizzaBlock({
+  id,
+  name,
+  imageUrl,
+  price,
+  types,
+  sizes,
+  onAddPizza,
+  addedCount,
+}) {
   const availableNames = ["тонкое", "традиционное"];
   const availableSizes = [26, 30, 40];
 
-  const [activeSize, setActiveSize] = React.useState(sizes[0]);
+  const [activeSize, setActiveSize] = React.useState(0);
   const [activeType, setActiveType] = React.useState(types[0]);
 
   const onSelecType = (index) => {
     setActiveType(index);
   };
 
-  const onSelecSize = (index) => {
+  const onSelectSize = (index) => {
     setActiveSize(index);
+  };
+
+  const handleAddPizza = () => {
+    const obj = {
+      id,
+      name,
+      imageUrl,
+      price,
+      size: availableSizes[activeSize],
+      type: availableNames[activeType],
+    };
+    onAddPizza(obj);
   };
 
   return (
@@ -36,23 +57,26 @@ function PizzaBlock({ name, imageUrl, price, types, sizes }) {
           ))}
         </ul>
         <ul>
-          {availableSizes.map((availableSizes, index) => (
+          {availableSizes.map((size, index) => (
             <li
-              key={availableSizes}
-              onClick={() => onSelecSize(index)}
+              key={size}
+              onClick={() => onSelectSize(index)}
               className={classNames({
-                active: activeSize === availableSizes,
-                disabled: !sizes.includes(availableSizes),
+                active: activeSize === index,
+                disabled: !sizes.includes(size),
               })}
             >
-              {availableSizes} см.
+              {size} см.
             </li>
           ))}
         </ul>
       </div>
       <div className="pizza-block__bottom">
         <div className="pizza-block__price">от {price} ₽</div>
-        <div className="button button--outline button--add">
+        <button
+          onClick={handleAddPizza}
+          className="button button--outline button--add"
+        >
           <svg
             width="12"
             height="12"
@@ -66,8 +90,8 @@ function PizzaBlock({ name, imageUrl, price, types, sizes }) {
             />
           </svg>
           <span>Добавить</span>
-          <i>2</i>
-        </div>
+          {addedCount && <i>{addedCount}</i>}
+        </button>
       </div>
     </div>
   );
