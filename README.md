@@ -1,8 +1,16 @@
+## Demo
+
+![Farmers Market Finder - Animated gif demo](demo/demo.gif)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
 In the project directory, you can run:
+
+### `npm test`
+
+Runs json-server.
 
 ### `npm start`
 
