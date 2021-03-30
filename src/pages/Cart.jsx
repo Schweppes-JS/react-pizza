@@ -136,13 +136,13 @@ function Cart() {
                   Всего пицц: <b>{totalCount} шт.</b>
                 </span>
                 <span>
-                  Сумма заказа: <b>{totalPrice} ₽</b>
+                  Сумма заказа: <b>{totalPrice} $</b>
                 </span>
               </div>
               <div className="cart__bottom-buttons">
                 <Link
                   to="/"
-                  clLinkssName="button button--outline button--add go-back-btn"
+                  className="button button--outline button--add go-back-btn"
                 >
                   <svg
                     width="8"
@@ -171,7 +171,7 @@ function Cart() {
         ) : (
           <div className="cart cart--empty">
             <h2>
-              Корзина пустая <i>😕</i>
+              Корзина пустая <span role="img" aria-label="sad">😕</span>
             </h2>
             <p>
               Вероятней всего, вы не заказывали ещё пиццу.
